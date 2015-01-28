@@ -1024,6 +1024,18 @@
             attributions[key] = a;
             return a;
           }
+        },
+
+        /**
+         * Reset map rotation no North
+         */
+        resetMapToNorth: function(map, view) {
+          map.beforeRender(ol.animation.rotate({
+            rotation: view.getRotation(),
+            duration: 1000,
+            easing: ol.easing.easeOut
+          }));
+          view.setRotation(0);
         }
       };
     };
